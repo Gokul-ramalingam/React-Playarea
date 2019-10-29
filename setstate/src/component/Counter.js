@@ -1,5 +1,14 @@
 import React,{ Component } from 'react'
 
+
+                                                                      //Three import points regarding setState
+
+//Always use setState to update state and never modify the state directly
+//Code to be executed after state update, then place the code in callback function as a second argument to setState method
+//whenever we need to update state based on prev state pass in function as argument instead of regular object
+
+
+
 class Counter extends Component{
     constructor(){
         super();
@@ -15,19 +24,16 @@ class Counter extends Component{
         console.log(this.state.count)
     }
 
-   incrementFive = () => {      //As the required output should be for each click count should be incremented by five but 
-    this.increment();               //here it increments count by only one
-    this.increment();              //To over come the problem we can use the soln in counter1.js
-    this.increment();
-    this.increment();
-    this.increment();
-   }
+     //As the required output should be for each click count should be incremented by one but 
+              //here it i is not incrementing count by one
+               //To over come the problem we can use the soln in counter1.js
+               //The above problem is because of the asynchronous calls
 
     render(){
         return(
             <div>
             <div>Count - {this.state.count}</div>
-            <button onClick={this.incrementFive}>increment</button>
+            <button onClick={this.increment}>increment</button>
             </div>
         )
     }
